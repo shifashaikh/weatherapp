@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="css//style.css">
+   <link rel="short icon" href="images/logo.png" type="image">
+
+
+</head>
+<body>
+  
+  {{> header}}
+
+
+    <!-- main -->
+
+    
+  <div class="container-fluid main-header">
+    <div class="row">
+      <div class="main_content">
+        <form action="" class="temp_form">
+          <input type="text" id="cityName" placeholder="Enter Your Area Name" autocomplete="off"/>
+          <input type="submit" class="btn btn-light" value="search" id="submitBtn"/>
+            
+        </form>
+      </div>
+      <div class="tempInformation">
+        <div class="top_layer">
+
+          <p id="day">Weekday</p>
+
+          <p id="today_data">13 Oct</p>
+        </div>
+        <div class="main_layer ">
+          <p id="city_name">
+             Get Output here
+             <div class="middle_layer data_hide">
+             <p id="temp"><span id="temp_realval">0</span><sup>o</sup>C</p>
+             <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+             </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- main -->
+
+    <!-- footer -->
+{{> footer}}
+
+     <!-- footer -->
+
+
+
+     <script src="js/main.js">
+
+     </script>
+
+     <script>
+
+
+
+       document.getElementsByClassName('navbar-toggler').innerHTML= `<i class="fa fa-caret-down" aria-hidden="true"></i>`;
+
+
+       
+function myFunction() {
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+  
+    var n = weekday[d.getDay()];
+    document.getElementById("day").innerHTML = n;
+  }
+
+  myFunction();
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+    ];
+
+    const d = new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    var fullDate = +dd +" "+ monthNames[d.getMonth()] +" "+ yyyy;
+    
+    document.getElementById("today_data").innerHTML = fullDate; 
+    
+     </script>
+</body>
+</html> 
